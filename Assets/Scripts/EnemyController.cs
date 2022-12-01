@@ -51,7 +51,6 @@ public class EnemyController : MonoBehaviour
             {
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.up * 7;
                 isCrushed = true;
-                //animator.SetBool("IsCrushed", isCrushed);
                 speed = 0;
                 Invoke("Death", 1);
             }

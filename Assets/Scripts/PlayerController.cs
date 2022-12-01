@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -59,10 +60,25 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-
+        if(jumpTimeCounter > 0)
+        {
+            rb.velocity = Vector2.up*jumpPower;
+        }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false;
+        }
+        if (death)
+        {
+            animator.SetTrigger("Death");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("void"))
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
     void flipPlayer()
@@ -75,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        rb.AddForce(Vector2.up * jumpPower);
+        rb.velocity = Vector2.up*jumpPower;
     }
 
 }
