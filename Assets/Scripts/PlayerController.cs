@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
         if (death)
         {
-            animator.SetTrigger("Death");
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
