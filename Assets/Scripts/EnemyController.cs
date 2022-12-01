@@ -6,8 +6,6 @@ public class EnemyController : MonoBehaviour
 {
     public int speed;
     private bool moveRight;
-
-    private bool isCrushed;
     public Animator animator;
 
     GameObject player;
@@ -50,7 +48,6 @@ public class EnemyController : MonoBehaviour
             if (transform.position.y + yOffset < collision.transform.position.y)
             {
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.up * 7;
-                isCrushed = true;
                 speed = 0;
                 Invoke("Death", 1);
             }

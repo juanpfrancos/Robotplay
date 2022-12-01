@@ -12,22 +12,16 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public int jumpPower = 200;
-    private bool isGrounded;
     public Transform feetPos;
     public float checkRadius;
     public LayerMask whatIsGround;
-    private bool isCrouch;
 
     private float jumpTimeCounter;
     public float jumpTime;
-    private bool isJumping;
-
     public static bool death;
     public static bool growUp;
     public static bool isStarUp;
     public static bool isFlowerUp;
-    private float countdown = 0.5f;
-    private float starCount = 12f;
 
     public int jump = 25;
     public Transform fireSpawn;
@@ -63,10 +57,6 @@ public class PlayerController : MonoBehaviour
         if(jumpTimeCounter > 0)
         {
             rb.velocity = Vector2.up*jumpPower;
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumping = false;
         }
         if (death)
         {
